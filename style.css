@@ -1,0 +1,115 @@
+body{
+    font-family: Arial, Helvetica, sans-serif;
+
+    text-align: center;
+
+    background-color: azure;
+}
+
+.cabecalho{
+    padding: 10px;
+
+    border-radius: 5px;
+
+    background: linear-gradient(135deg, #02c4ff 0%, #6d19f4 100%);
+
+    box-shadow: 10px;
+
+    color: azure;
+
+    border: 1px solid black;
+}
+
+.navegator{
+    display: flex;
+
+    justify-content: center;
+
+    flex-wrap: wrap;
+
+    gap: 12px;
+}
+
+.navegator a{
+    text-decoration: none;
+
+    background: linear-gradient(135deg, #02c4ff 0%, #6d19f4 100%);
+
+    color: #f3f4f6;
+
+    padding: 8px 22px;
+
+    font-size: 0.95rem;
+
+    font-weight: 600;
+
+    border-radius: 20px;
+
+    transition: all 0.2s ease-in-out;
+
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.navegator a:hover {
+    transform: scale(1.4);
+
+    color: black;
+}
+
+.escondido{
+    display: none;
+}
+
+.operecao{
+    padding: 10px;
+
+    border-radius: 10px;
+
+    border: 1px solid black;
+}
+
+.notas{
+    display: grid;
+}
+
+#cop_col{
+    background-color: #02c4ff;
+
+    color: white;
+
+    border-radius: 10px;
+
+    box-shadow: 0 2px 4px black;
+
+    border: 1px solid #6d19f4;
+}
+
+#reset{
+    background-color: red;
+    
+    border-radius: 10px;
+
+    color: antiquewhite;
+
+    box-shadow: 0 2px 4px black;
+
+    border: 1px solid #6d19f4;
+}
+
+button:hover{
+    transform: scale(1.5);
+}
+
+.pe{
+    padding: 10px;
+
+    border-radius: 5px;
+
+    background: linear-gradient(135deg, #02c4ff 0%, #6d19f4 100%);
+
+    box-shadow: 10px;
+
+    color: azure;
+
+    border: 1px solid black;
+}

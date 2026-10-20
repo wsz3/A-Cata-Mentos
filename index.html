@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acatamentos</title>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+    <header class="cabecalho">
+        <h1>Bem vindo A Cata Mentos</h1>
+        <p>Estou aqui para agilizar o seu processo de registro das notas de acatamento.</p>
+    
+    <nav class="navegator">
+        <a>
+            <label for="selector">Escolha o processo que deseja:</label>
+            <select id="selector" name="selector" required>
+                <option value="" disabled selected>Selecione...</option>
+                <option value="Revi">Revisão</option>
+                <option value="Exame">Exame/Aferição</option>
+            </select>
+            <small class="erro">Selecione um.</small>
+        </a>
+    </nav>
+
+    </header>
+
+<main class="operecao">
+        <h2>Notas do acatamento</h2>
+        <p>Aqui é onde a magia acontece.</p>
+        <p>Escolha uma das opções acima, "Revisão" ou "Exame/Aferição", depois é so clicar nos botões e depois copiar.</p>
+
+    <section class="notas">
+
+<!--Revisão-->
+    <form>
+
+        <div class="campo">
+            <label for="RoC">Residência ou Comercial?</label>
+            <select id="RoC" name="RoC" required>
+                <option value="" disabled selected>Selecione...</option>
+                <option value="Resi">Residência</option>
+                <option value="Comer">Comercio</option>
+            </select>
+            <small class="erro">Selecione um.</small>
+        </div>
+
+
+        <div class="campo">
+            <label for="telefone">Telefone *</label>
+            <input type="tel" id="telefone" name="telefone"
+            placeholder="(11) 98765-4321"
+            pattern="\(\d{2}\) \d{4,5}-\d{4}"
+            title="Formato: (99) 99999-9999 ou (99) 9999-9999"
+            autocomplete="tel">
+        <small class="erro">Digite no formato (XX) XXXXX-XXXX ou (XX) XXXX-XXXX.</small>
+        </div>
+
+        <div class="campo">
+            <label for="genero">Senhor ou Senhora?</label>
+            <select id="genero" name="genero" required>
+                <option value="" disabled selected>Selecione...</option>
+                <option value="Sr">Senhor</option>
+                <option value="Sra">Senhora</option>
+            </select>
+            <small class="erro">Selecione um.</small>
+            <label for="nome">Nome Completo *</label>
+            <input type="text" id="nome" name="nome"
+            placeholder="Lápis da Silva Júnior"
+            required minlength="3" autocomplete="name">
+        <small class="erro">Informe ao menos 3 caracteres.</small>
+        </div>
+
+        <div class="campo">
+            <label for="leitura">Qual é a leitura? *</label>
+            <input type="number" id="leitura" name="leitura"
+            placeholder="0">
+        <small class="erro">Esta informação não pode estar zerada.</small>
+            <label for="data">Qual a data da leitura?</label>
+            <input type="date" id="data" name="data">
+            <label for="proje">Qual é a projeção? *</label>
+            <input type="number" id="proje" name="proje"
+            placeholder="0">
+        <small class="erro">Esta informação não pode estar zerada.</small>
+        </div>
+
+        <div class="campo escondido" id="bloco_exame">
+            <label for="num_os">Número de OS (Revisão e/ou Refaturamento) vinculada: *</label>
+            <input type="text" id="num_os" name="num_os"
+            placeholder="2026/12345678"
+            required minlength="3" autocomplete="name">
+        <small class="erro">Informe ao menos 3 caracteres.</small>
+            <label for="troca">Houve troca do hidrômetro nos últimos 2 meses? *</label>
+            Sim<input type="radio" id="troca_s" name="troca">
+            Não<input type="radio" id="troca_n" name="troca">
+        </div>
+
+        <div class="campo">
+            <label for="verifi">Realizou as verificações nas instalações internas? *</label>
+            Sim<input type="radio" id="verifi_s" name="verifi">
+            Não<input type="radio" id="verifi_n" name="verifi">
+        </div>
+
+        <div class="campo">
+            <label for="vaza">Localizou Vazamento? *</label>
+            Sim<input type="radio" id="vaza_s" name="vaza">
+            Não<input type="radio" id="vaza_n" name="vaza">
+        </div>
+
+        <div class="campo">
+            <label for="reg">Mantém Registro fechado? *</label>
+            Sim<input type="radio" id="reg_s" name="reg">
+            Não<input type="radio" id="reg_n" name="reg">
+        </div>
+
+        <div class="campo">
+            <label for="roti">Rotina normal? *</label>
+            Sim<input type="radio" id="roti_s" name="roti">
+            Não<input type="radio" id="roti_n" name="roti">
+        </div>
+
+        <div class="campo escondido" id="bloco_resi">
+            <label for="moradores">Se residência, quantas pessoas? *</label>
+            <input type="number" id="moradores" name="moradores"
+            placeholder="0">
+        <small class="erro">Informe a quantidade, se zero, coloque zero.</small>
+        </div>
+
+        <div class="campo">
+            <label for="pet">Animais de estimação? *</label>
+            Sim<input type="radio" id="pet_s" name="pet">
+            Não<input type="radio" id="pet_n" name="pet">
+        <div class="campo escondido" id="condpet">
+            <label for="pets">Quantos? *</label>
+            <input type="number" id="pets" name="pets"
+            placeholder="1"
+            min="1">
+        <small class="erro">Este campo não pode estar zerado.</small>
+        </div>
+        </div>
+
+        <div class="campo">
+            <label for="tempo">Qual opção?</label>
+            <select id="tempo" name="tempo" required>
+                <option value="" disabled selected>Selecione...</option>
+                <option value="Ano">Anos</option>
+                <option value="Mês">Meses</option>
+                <option value="Semana">Semanas</option>
+                <option value="Dia">Dias</option>
+            </select>
+            <small class="erro">Selecione um.</small>
+            <label for="tempos">Reside há quanto tempo? *</label>
+            <input type="number" id="tempos" name="tempos"
+            min="1"
+            placeholder="1">
+        <small class="erro">Aqui não pode ser zero.</small>
+        </div>
+
+        <div class="campo">
+            <label for="caixa">Tem caixa de água? *</label>
+            Sim<input type="radio" id="caixa_s" name="caixa">
+            Não<input type="radio" id="caixa_n" name="caixa">
+        <div class="campo escondido" id="condcaixa">
+            <label for="litro">Quantas caixas? *</label>
+            <input type="number" id="litro" name="litro"
+            placeholder="1"
+            min="1">
+        <small class="erro">Este campo não pode estar zerado.</small>
+            <label for="litros">Quantos litros? *</label>
+            <input type="number" id="litros" name="litros"
+            placeholder="100"
+            min="100">
+        <small class="erro">Este campo não pode ser menor que 100.</small>
+        </div>
+        </div>
+
+        <div class="campo">
+            <label for="banheiros">Quantos banheiros? *</label>
+            <input type="number" id="banheiros" name="banheiros"
+            min="1"
+            placeholder="1">
+        <small class="erro">Este campo não pode estar zerado.</small>
+        </div>
+
+         <div class="campo">
+            <label for="pis">Tem piscina? *</label>
+            Sim<input type="radio" id="pis_s" name="pis">
+            Não<input type="radio" id="pis_n" name="pis">
+        </div>
+
+        <div class="campo escondido" id="bloco_comer">
+            <label for="ativi">Se comércio ou indústria, qual atividade? *</label>
+            <input type="text" id="ativi" name="ativi"
+            placeholder="Barbearia"
+            required minlength="3" autocomplete="name">
+        <small class="erro">Informe ao menos 3 caracteres.</small>
+            <label for="funcio">Quantos funcionários? *</label>
+            <input type="number" id="funcio" name="funcio"
+            min="1"
+            placeholder="1">
+        <small class="erro">Informe a quantidade.</small>
+        </div>
+
+        <section class="visualizer">
+            <div class="campo">
+                <label for="notaPronta">Pré-vizualizção da nota gerada:</label>
+                <p><textarea id="notaPronta" rows="8" readonly placeholder="A nota após gerada irá aparecer aqui..."></textarea></p>
+            </div>
+            <button type="button" id="cop_col">Copiar e Colar</button>
+            <button type="reset" id="reset">Apagar</button>
+        </section>
+
+    </section>
+
+    </form>
+
+    
+
+</main>
+
+<footer class="pe">
+    <p>Projeto desenvolvido pelo Wallace Silva-Video atendimento</p>
+    <p>Caso tenha dúvidas entre em contato comigo.</p>
+</footer>
+
+<script src="script.js" defer></script>
+</body>
+</html>
