@@ -166,6 +166,7 @@ formNotas.addEventListener('reset', function(){
 
 botaoCopiar.addEventListener('click', function(){
     //botões para residência
+    const contato = document.getElementById('contato').value;
     const telefone = document.getElementById('telefone').value;
     const genero = document.getElementById('genero').value;
     const nome = document.getElementById('nome').value;
@@ -232,7 +233,7 @@ let textoFinal ="";
 
 if(selector.value === 'Revi'){
 
-textoFinal = `Tel: ${telefone} /${genero} ${nome} leitura do cliente ${leitura}m³ em ${data}. Projeção ${proje}. Alega que_____
+textoFinal = `${contato}: ${telefone} /${genero} ${nome} leitura do cliente ${leitura}m³ em ${data}. Projeção ${proje}. Alega que_____
 
 Realizou as verificações nas instalações internas? ${respostaVerifi}
 Localizou Vazamento? ${respostaVaza}
@@ -245,7 +246,7 @@ ${textoCaixa}
 Quantos banheiros? ${banheiros}
 Tem piscina? ${respostaPis}`;
 } else if(selector.value === 'Exame'){
-textoFinal = `Tel: ${telefone} /${genero} ${nome} leitura do cliente ${leitura}m³ em ${data}. Projeção ${proje}. Alega que_____
+textoFinal = `${contato}: ${telefone} /${genero} ${nome} leitura do cliente ${leitura}m³ em ${data}. Projeção ${proje}. Alega que_____
 
 Número de OS (Revisão e/ou Refaturamento) vinculada: ${os}
 Houve troca do hidrômetro nos últimos 2 meses? ${respostaTroca}
@@ -279,6 +280,8 @@ const selector = document.getElementById('selector');
 const bloco_exame = document.getElementById('bloco_exame');
 const inputOs = document.getElementById('num_os');
 const inputTroca = document.getElementById('troca');
+const aviso = document.getElementById('aviso');
+const formulario = document.getElementById('formulario');
 
 selector.addEventListener('change', function(){
     if(selector.value === 'Revi'){
@@ -287,5 +290,15 @@ selector.addEventListener('change', function(){
         inputTroca.value = ' ';
     }else{
         bloco_exame.classList.remove('escondido');
+    }
+});
+
+selector.addEventListener('change', function(){
+    if(selector.value === 'Revi'){
+        formulario.classList.remove('escondido');
+        aviso.classList.add('escondido');
+    }else{
+        formulario.classList.remove('escondido');
+        aviso.classList.add('escondido');
     }
 });

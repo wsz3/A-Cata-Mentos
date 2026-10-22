@@ -11,7 +11,7 @@ body{
 
     border-radius: 5px;
 
-    background: linear-gradient(135deg, #02c4ff 0%, #6d19f4 100%);
+    background: linear-gradient(135deg, #4cc9f0 0%, #4361ee 50%, #3a0ca3 100%);
 
     box-shadow: 10px;
 
@@ -33,7 +33,7 @@ body{
 .navegator a{
     text-decoration: none;
 
-    background: linear-gradient(135deg, #02c4ff 0%, #6d19f4 100%);
+    background: linear-gradient(135deg, #4cc9f0 0%, #4361ee 50%, #3a0ca3 100%);
 
     color: #f3f4f6;
 
@@ -66,14 +66,12 @@ body{
     border-radius: 10px;
 
     border: 1px solid black;
-}
 
-.notas{
-    display: grid;
+    background: linear-gradient(135deg, #ffffff 0%, #e5e5e5 100%);
 }
 
 #cop_col{
-    background-color: #02c4ff;
+    background-color: #00ffff;
 
     color: white;
 
@@ -100,12 +98,82 @@ button:hover{
     transform: scale(1.5);
 }
 
+.campo{
+    padding: 15px;
+}
+
+.radio_dife input[type="radio"]{
+    position: absolute;
+
+    opacity: 0;
+
+    cursor: pointer;
+
+    height: 0;
+
+    width: 0;
+}
+
+.radio_dife{
+    display: inline-flex;
+    
+    align-items: center;
+    
+    position: relative;
+    
+    padding-left: 28px;
+    
+    cursor: pointer;
+    
+    font-size: 14px;
+    
+    user-select: none;
+    
+    margin-right: 15px;
+}
+
+.radio_dife .quadrado{
+    position: absolute;
+    
+    left: 0;
+    
+    top: 50%;
+    
+    transform: translateY(-50%);
+    
+    height: 18px;
+    
+    width: 18px;
+    
+    background-color: #fff;
+    
+    border: 2px solid #3a0ca3;
+    
+    border-radius: 4px; 
+    
+    transition: background-color 0.2s, border-color 0.2s;
+}
+
+.radio_dife:hover input ~ .quadrado{
+    background-color: #04f104;
+}
+
+.radio_dife input:checked ~ .quadrado{
+    background-color: #0004ff;
+
+    border-color: #040404;
+}
+
+small{
+    display: none;
+}
+
 .pe{
     padding: 10px;
 
     border-radius: 5px;
 
-    background: linear-gradient(135deg, #02c4ff 0%, #6d19f4 100%);
+    background: linear-gradient(135deg, #4cc9f0 0%, #4361ee 50%, #3a0ca3 100%);
 
     box-shadow: 10px;
 

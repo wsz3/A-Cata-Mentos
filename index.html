@@ -11,11 +11,11 @@
 <body>
 
     <header class="cabecalho">
-        <h1>Bem vindo A Cata Mentos</h1>
-        <p>Estou aqui para agilizar o seu processo de registro das notas de acatamento.</p>
+        <h1>A Cata Mentos</h1>
+        <p>Bem Vindo. Estou aqui para agilizar o seu processo de registro das notas de acatamento.</p>
     
     <nav class="navegator">
-        <a>
+        👉<a>
             <label for="selector">Escolha o processo que deseja:</label>
             <select id="selector" name="selector" required>
                 <option value="" disabled selected>Selecione...</option>
@@ -23,12 +23,13 @@
                 <option value="Exame">Exame/Aferição</option>
             </select>
             <small class="erro">Selecione um.</small>
-        </a>
+        </a>👈
     </nav>
 
     </header>
 
 <main class="operecao">
+    <h1 class="" id="aviso">👆INFORME UMA OPÇÃO ANTES.👆</h1>
         <h2>Notas do acatamento</h2>
         <p>Aqui é onde a magia acontece.</p>
         <p>Escolha uma das opções acima, "Revisão" ou "Exame/Aferição", depois é so clicar nos botões e depois copiar.</p>
@@ -36,7 +37,7 @@
     <section class="notas">
 
 <!--Revisão-->
-    <form>
+    <form class="escondido" id="formulario">
 
         <div class="campo">
             <label for="RoC">Residência ou Comercial?</label>
@@ -50,12 +51,16 @@
 
 
         <div class="campo">
+            <label for="contato">Qual o melhor contato?</label>
+            <select id="contato" name="contato" required>
+                <option value="" disabled selected>Selecione...</option>
+                <option value="Tel">Telefone</option>
+                <option value="E-mail">E-mail</option>
+            </select>
+            <small class="erro">Selecione um.</small>
             <label for="telefone">Telefone *</label>
-            <input type="tel" id="telefone" name="telefone"
-            placeholder="(11) 98765-4321"
-            pattern="\(\d{2}\) \d{4,5}-\d{4}"
-            title="Formato: (99) 99999-9999 ou (99) 9999-9999"
-            autocomplete="tel">
+            <input type="text" id="telefone" name="telefone"
+            placeholder="(11) 98765-4321 / email@email.com">
         <small class="erro">Digite no formato (XX) XXXXX-XXXX ou (XX) XXXX-XXXX.</small>
         </div>
 
@@ -93,33 +98,78 @@
             placeholder="2026/12345678"
             required minlength="3" autocomplete="name">
         <small class="erro">Informe ao menos 3 caracteres.</small>
-            <label for="troca">Houve troca do hidrômetro nos últimos 2 meses? *</label>
-            Sim<input type="radio" id="troca_s" name="troca">
-            Não<input type="radio" id="troca_n" name="troca">
+            <p><label for="troca">Houve troca do hidrômetro nos últimos 2 meses? *</label>
+                <label class="radio_dife">
+                    <input type="radio" id="troca_s" name="troca">
+                    <span class="quadrado"></span>
+                    Sim
+                </label>
+
+                <label class="radio_dife">
+                    <input type="radio" id="troca_n" name="troca">
+                    <span class="quadrado"></span>
+                    Não
+                </label></p>
         </div>
 
         <div class="campo">
             <label for="verifi">Realizou as verificações nas instalações internas? *</label>
-            Sim<input type="radio" id="verifi_s" name="verifi">
-            Não<input type="radio" id="verifi_n" name="verifi">
+                <label class="radio_dife">
+                    <input type="radio" id="verifi_s" name="verifi">
+                    <span class="quadrado"></span>
+                    Sim
+                </label>
+
+                <label class="radio_dife">
+                    <input type="radio" id="verifi_n" name="verifi">
+                    <span class="quadrado"></span>
+                    Não
+                </label>
         </div>
 
         <div class="campo">
             <label for="vaza">Localizou Vazamento? *</label>
-            Sim<input type="radio" id="vaza_s" name="vaza">
-            Não<input type="radio" id="vaza_n" name="vaza">
+                <label class="radio_dife">
+                    <input type="radio" id="vaza_s" name="vaza">
+                    <span class="quadrado"></span>
+                    Sim
+                </label>
+
+                <label class="radio_dife">
+                    <input type="radio" id="vaza_n" name="vaza">
+                    <span class="quadrado"></span>
+                    Não
+                </label>
         </div>
 
         <div class="campo">
             <label for="reg">Mantém Registro fechado? *</label>
-            Sim<input type="radio" id="reg_s" name="reg">
-            Não<input type="radio" id="reg_n" name="reg">
+                <label class="radio_dife">
+                    <input type="radio" id="reg_s" name="reg">
+                    <span class="quadrado"></span>
+                    Sim
+                </label>
+
+                <label class="radio_dife">
+                    <input type="radio" id="reg_n" name="reg">
+                    <span class="quadrado"></span>
+                    Não
+                </label>
         </div>
 
         <div class="campo">
             <label for="roti">Rotina normal? *</label>
-            Sim<input type="radio" id="roti_s" name="roti">
-            Não<input type="radio" id="roti_n" name="roti">
+                <label class="radio_dife">
+                    <input type="radio" id="roti_s" name="roti">
+                    <span class="quadrado"></span>
+                    Sim
+                </label>
+
+                <label class="radio_dife">
+                    <input type="radio" id="roti_n" name="roti">
+                    <span class="quadrado"></span>
+                    Não
+                </label>
         </div>
 
         <div class="campo escondido" id="bloco_resi">
@@ -131,8 +181,17 @@
 
         <div class="campo">
             <label for="pet">Animais de estimação? *</label>
-            Sim<input type="radio" id="pet_s" name="pet">
-            Não<input type="radio" id="pet_n" name="pet">
+                <label class="radio_dife">
+                    <input type="radio" id="pet_s" name="pet">
+                    <span class="quadrado"></span>
+                    Sim
+                </label>
+
+                <label class="radio_dife">
+                    <input type="radio" id="pet_n" name="pet">
+                    <span class="quadrado"></span>
+                    Não
+                </label>
         <div class="campo escondido" id="condpet">
             <label for="pets">Quantos? *</label>
             <input type="number" id="pets" name="pets"
@@ -161,8 +220,17 @@
 
         <div class="campo">
             <label for="caixa">Tem caixa de água? *</label>
-            Sim<input type="radio" id="caixa_s" name="caixa">
-            Não<input type="radio" id="caixa_n" name="caixa">
+                <label class="radio_dife">
+                    <input type="radio" id="caixa_s" name="caixa">
+                    <span class="quadrado"></span>
+                    Sim
+                </label>
+
+                <label class="radio_dife">
+                    <input type="radio" id="caixa_n" name="caixa">
+                    <span class="quadrado"></span>
+                    Não
+                </label>
         <div class="campo escondido" id="condcaixa">
             <label for="litro">Quantas caixas? *</label>
             <input type="number" id="litro" name="litro"
@@ -170,10 +238,16 @@
             min="1">
         <small class="erro">Este campo não pode estar zerado.</small>
             <label for="litros">Quantos litros? *</label>
-            <input type="number" id="litros" name="litros"
-            placeholder="100"
-            min="100">
-        <small class="erro">Este campo não pode ser menor que 100.</small>
+            <select id="litros" name="litros" required>
+                <option value="" disabled selected>Selecione...</option>
+                <option value="50L">50L</option>
+                <option value="100L">100L</option>
+                <option value="250L">250L</option>
+                <option value="500L">500L</option>
+                <option value="1000L">1000L</option>
+                <option value="Não Sabe Informar">Não Sabe Informar</option>
+            </select>
+            <small class="erro">Selecione um.</small>
         </div>
         </div>
 
@@ -187,8 +261,17 @@
 
          <div class="campo">
             <label for="pis">Tem piscina? *</label>
-            Sim<input type="radio" id="pis_s" name="pis">
-            Não<input type="radio" id="pis_n" name="pis">
+                <label class="radio_dife">
+                    <input type="radio" id="pis_s" name="pis">
+                    <span class="quadrado"></span>
+                    Sim
+                </label>
+
+                <label class="radio_dife">
+                    <input type="radio" id="pis_n" name="pis">
+                    <span class="quadrado"></span>
+                    Não
+                </label>
         </div>
 
         <div class="campo escondido" id="bloco_comer">
@@ -197,11 +280,11 @@
             placeholder="Barbearia"
             required minlength="3" autocomplete="name">
         <small class="erro">Informe ao menos 3 caracteres.</small>
-            <label for="funcio">Quantos funcionários? *</label>
+            <p><label for="funcio">Quantos funcionários? *</label>
             <input type="number" id="funcio" name="funcio"
             min="1"
             placeholder="1">
-        <small class="erro">Informe a quantidade.</small>
+        <small class="erro">Informe a quantidade.</small></p>
         </div>
 
         <section class="visualizer">
