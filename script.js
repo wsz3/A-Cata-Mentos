@@ -181,6 +181,7 @@ botaoCopiar.addEventListener('click', function(){
     const banheiros = document.getElementById('banheiros').value;
     const data = document.getElementById('data').value;
     const os = document.getElementById('num_os').value;
+    const Alega = document.getElementById('alega').value;
 
 //Para comercio
     const ativi = document.getElementById('ativi').value;
@@ -233,7 +234,7 @@ let textoFinal ="";
 
 if(selector.value === 'Revi'){
 
-textoFinal = `${contato}: ${telefone} /${genero} ${nome} leitura do cliente ${leitura}m³ em ${data}. Projeção ${proje}. Alega que_____
+textoFinal = `${contato}: ${telefone} /${genero} ${nome} leitura do cliente ${leitura}m³ em ${data}. Projeção ${proje}. Alega que ${Alega}
 
 Realizou as verificações nas instalações internas? ${respostaVerifi}
 Localizou Vazamento? ${respostaVaza}
@@ -246,7 +247,7 @@ ${textoCaixa}
 Quantos banheiros? ${banheiros}
 Tem piscina? ${respostaPis}`;
 } else if(selector.value === 'Exame'){
-textoFinal = `${contato}: ${telefone} /${genero} ${nome} leitura do cliente ${leitura}m³ em ${data}. Projeção ${proje}. Alega que_____
+textoFinal = `${contato}: ${telefone} /${genero} ${nome} leitura do cliente ${leitura}m³ em ${data}. Projeção ${proje}. Alega que ${Alega}
 
 Número de OS (Revisão e/ou Refaturamento) vinculada: ${os}
 Houve troca do hidrômetro nos últimos 2 meses? ${respostaTroca}
