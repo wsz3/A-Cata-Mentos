@@ -303,3 +303,34 @@ selector.addEventListener('change', function(){
         aviso.classList.add('escondido');
     }
 });
+
+const burguiMenu = document.getElementById('btn_burgui');
+const burguiFechar = document.getElementById('burgui_fecha');
+const burguiLateral = document.getElementById('burgui_lateral');
+
+burguiMenu.addEventListener('click', function(){
+    burguiLateral.classList.remove('fechado');
+});
+
+burguiFechar.addEventListener('click', function(){
+    burguiLateral.classList.add('fechado');
+});
+
+window.addEventListener('click', function(evento){
+    if(!burguiLateral.contains(evento.target) && evento.target !== burguiMenu){
+        burguiLateral.classList.add('fechado');
+    }
+});
+
+const alegaQue = document.getElementById('alega');
+const preAlega = document.getElementById('pre_alega');
+
+preAlega.addEventListener('change', function(){
+    if(preAlega.value === 'fez_teste'){
+        alegaQue.value = `Fez as verificações e os testes e não foi encontrado vazamento, deseja a revisão, pois fatura está alta.`;
+    } else if(preAlega.value === 'chamou'){
+        alegaQue.value = `Chamou um técnico para sua residência e com ele não foi identificado nenhum tipo de vazamento, então deseja a revisão, pois fatura está alta.`;
+    } else if(preAlega.value === 'fora'){
+        alegaQue.value = `Esteve fora durante o tempo dessa fatura, além de realizar as verificações e os testes e nenhum vazamento foi constado, logo a fatura não faz sentido ter esse valor.`;
+    }
+});

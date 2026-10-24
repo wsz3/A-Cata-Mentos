@@ -56,6 +56,110 @@ body{
     color: black;
 }
 
+.burgui_btn{
+    background: linear-gradient(135deg, #4cc9f0 0%, #4361ee 50%, #3a0ca3 100%);
+
+    color: white;
+
+    border: none;
+
+    padding: 8px 12px;
+
+    border-radius: 4px;
+
+    cursor: pointer;
+
+    font-weight: bold;
+}
+
+.lateral_burgui{
+    position: fixed;
+
+    top: 0;
+
+    right: 0;
+
+    width: 300px;
+
+    height: 100%;
+
+    background-color: #4cc9f0;
+
+    box-shadow: -4px 0 10px rgba(0, 0, 0, 0.15);
+
+    z-index: 1000;
+
+    padding: 20px;
+
+    box-sizing: border-box;
+
+    transform: translateX(0);
+    
+    visibility: visible;
+    
+    opacity: 1;
+
+    transition: transform 0.3s ease-in-out, visibility 0.3s ease-in-out, opacity 0.3s ease-in-out;
+}
+
+.lateral_burgui.fechado{
+    transform: translateX(100%);
+
+    visibility: hidden;
+
+    opacity: 0;
+
+    pointer-events: none;
+}
+
+.burgui_head{
+    display: flex;
+    
+    justify-content: space-between;
+    
+    align-items: center;
+    
+    border-bottom: 2px solid #f0f0f0;
+    
+    padding-bottom: 10px;
+    
+    margin-bottom: 20px;
+}
+
+.fecha_burgui{
+    background: none;
+    
+    border: none;
+    
+    font-size: 24px;
+    
+    cursor: pointer;
+    
+    color: #333;
+}
+
+.menu_burgui{
+    list-style: none;
+
+    padding: 0;
+}
+
+.menu_burgui li{
+    margin-bottom: 15px;
+}
+
+.menu_burgui a{
+    text-decoration: none;
+
+    color: #ffffff;
+
+    font-weight: 600;
+}
+
+.menu_burgui a:hover{
+    text-decoration: underline;
+}
+
 .escondido{
     display: none;
 }
@@ -92,6 +196,10 @@ body{
     box-shadow: 0 2px 4px black;
 
     border: 1px solid #6d19f4;
+}
+
+button{
+    transition: all 0.2s ease-in-out;
 }
 
 button:hover{

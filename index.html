@@ -24,6 +24,20 @@
             </select>
             <small class="erro">Selecione um.</small>
         </a>👈
+
+        <button type="button" id="btn_burgui" class="burgui_btn">☰ Beedoo</button>
+
+        <div id="burgui_lateral" class="lateral_burgui fechado">
+            <div class="burgui_head">
+                <h3>Os links para o beedoo</h3>
+                <button type="button" id="burgui_fecha" class="fecha_burgui">&times;</button>
+            </div>
+            <ul class="menu_burgui">
+                <li><a href="https://almawavesabesp.beedoo.io/wiki/558653/revisao---alta-de-consumo-sem-causa-aparente" target="_blank">Revisão Sem Causa</a></li>
+                <li><a href="https://almawavesabesp.beedoo.io/wiki/519476/vistoria-exame-predial?termo=exame&origem=busca_geral" target="_blank">Exame Predial</a></li>
+                <li><a href="https://almawavesabesp.beedoo.io/wiki/511390/afericao-de-hidrometro" target="_blank">Aferição de hidrômetro</a></li>
+            </ul>
+        </div>
     </nav>
 
     </header>
@@ -80,7 +94,15 @@
         </div>
 
         <div class="campo">
-            <label for="alega">O cliente alega que...</label>
+            <label for="pre_alega">Mensagens prontas</label>
+            <select id="pre_alega" name="pre_alega" required>
+                <option value="" disabled selected>Selecione...</option>
+                <option value="fez_teste">Fez os testes</option>
+                <option value="chamou">Chamou alguém</option>
+                <option value="fora">Estava fora</option>
+            </select>
+            <small class="erro">Selecione um.</small>
+            <p><label for="alega">O cliente alega que...</label></p>
             <p><textarea id="alega" name="alega" rows="4" 
             placeholder="O cliente alega que fez as verificações..."></textarea>
             <small class="erro">Selecione um.</small></p>
