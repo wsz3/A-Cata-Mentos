@@ -283,14 +283,20 @@ const inputOs = document.getElementById('num_os');
 const inputTroca = document.getElementById('troca');
 const aviso = document.getElementById('aviso');
 const formulario = document.getElementById('formulario');
+const blocoAlegaRevi = document.getElementById('al_revi');
+const blocoAlegaExame = document.getElementById('al_exame');
 
 selector.addEventListener('change', function(){
     if(selector.value === 'Revi'){
         bloco_exame.classList.add('escondido');
+        blocoAlegaRevi.classList.remove('escondido');
+        blocoAlegaExame.classList.add('escondido');
         inputOs.value = ' ';
         inputTroca.value = ' ';
     }else{
         bloco_exame.classList.remove('escondido');
+        blocoAlegaRevi.classList.add('escondido');
+        blocoAlegaExame.classList.remove('escondido');
     }
 });
 
@@ -323,14 +329,25 @@ window.addEventListener('click', function(evento){
 });
 
 const alegaQue = document.getElementById('alega');
-const preAlega = document.getElementById('pre_alega');
+const preAlegaR = document.getElementById('pre_alegaR');
+const preAlegaE = document.getElementById('pre_alegaE');
 
-preAlega.addEventListener('change', function(){
-    if(preAlega.value === 'fez_teste'){
+preAlegaR.addEventListener('change', function(){
+    if(preAlegaR.value === 'fez_teste'){
         alegaQue.value = `Fez as verificações e os testes e não foi encontrado vazamento, deseja a revisão, pois fatura está alta.`;
-    } else if(preAlega.value === 'chamou'){
+    } else if(preAlegaR.value === 'chamou'){
         alegaQue.value = `Chamou um técnico para sua residência e com ele não foi identificado nenhum tipo de vazamento, então deseja a revisão, pois fatura está alta.`;
-    } else if(preAlega.value === 'fora'){
+    } else if(preAlegaR.value === 'fora'){
         alegaQue.value = `Esteve fora durante o tempo dessa fatura, além de realizar as verificações e os testes e nenhum vazamento foi constado, logo a fatura não faz sentido ter esse valor.`;
+    }
+});
+
+preAlegaE.addEventListener('change', function(){
+    if(preAlegaE.value === 'virtual'){
+        alegaQue.value = `EXAME PREDIAL VIRTUAL REALIZADO. FORMA DA ANÁLISE: [VIDEOCONFERÊNCIA / VÍDEO / FOTOS]. HIDRÔMETRO VALIDADO. LEITURA CONFIRMADA. LACRES ÍNTEGROS. CAVALETE SEM ANORMALIDADES APARENTES. TESTES REALIZADOS. SEM INDÍCIOS DE VAZAMENTO OU ANORMALIDADES. CLIENTE ORIENTADO SOBRE O RESULTADO DA ANÁLISE. `;
+    } else if(preAlegaE.value === 'virtual_n'){
+        alegaQue.value = `EXAME PREDIAL VIRTUAL. CLIENTE INFORMA IMPOSSIBILIDADE DE UTILIZAÇÃO DO CANAL DIGITAL. JUSTIFICATIVA APRESENTADA: [DESCREVER JUSTIFICATIVA DE EXCEÇÃO].`;
+    } else if(preAlegaE.value === 'hd'){
+        alegaQue.value = `Cliente diz que seu hidrômetro está com problema, [está passando somente ar por ele / está medindo totalmente errado / está girando sem parar], deseja que um técnico vá em sua residência verificar isso.`;
     }
 });
