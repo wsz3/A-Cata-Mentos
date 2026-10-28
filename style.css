@@ -135,7 +135,7 @@ body{
     
     cursor: pointer;
     
-    color: #333;
+    color: #000000;
 }
 
 .menu_burgui{
@@ -279,6 +279,31 @@ button:hover{
 
     border-color: #040404;
 }
+
+.radio_dife .quadrado::after{
+    content: " " ;
+
+    position: absolute;
+
+    display: none;
+
+    left: 6px;
+
+    top: 6px;
+    
+    width: 6px;
+    
+    height: 6px;
+    
+    background: #eb6a01;
+    
+    border-radius: 5px;
+}
+
+.radio_dife input:checked ~ .quadrado::after{
+    display: block;
+}
+
 
 input[type="text"]{
     padding: 2px;

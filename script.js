@@ -211,6 +211,19 @@ botaoCopiar.addEventListener('click', function(){
 
     const trocaSim = document.getElementById('troca_s').checked;
     const respostaTroca = trocaSim ? 'Sim' : 'Não';
+
+//Refaturamento
+    const refaCod = document.getElementById('cod').value;
+    const os_laudo = document.getElementById('os_laudo').value;
+    const leitura_ref = document.getElementById('leitura_ref').value;
+    const dataC = document.getElementById('dataC').value;
+    const dataT = document.getElementById('dataT').value;
+    const proje_ref = document.getElementById('proje_ref').value;
+    const tace_ref = document.getElementById('tace_ref').value;
+    const media = document.getElementById('media').value;
+    const envolviFaturas = document.getElementById('faturas').value;
+    const dataInicial = document.getElementById('dataInicial').value;
+    const dataFinal = document.getElementById('dataFinal').value;
     
 let imovelTexto = "";
 if(selectRoc.value === 'Resi'){
@@ -261,6 +274,36 @@ Reside há quanto tempo? ${tempos} ${tempo}(s)
 ${textoCaixa}
 Quantos banheiros? ${banheiros}
 Tem piscina? ${respostaPis}`;
+} else if(selector.value === 'Refa'){
+    if(refaCod === 'cod21' || refaCod === 'cod23'){
+
+        const nomeCod = refaCod === 'cod21' ? 'CÓDIGO 21 - ENGANO DE LEITURA (LEITURISTA)' : 'CÓDIGO 23 - ENGANO DE LEITURA INICIAL';
+
+textoFinal = `${nomeCod}
+Leitura do cliente ${leitura_ref}m³ Em ${dataC}. Projeção ${proje_ref}
+Leitura Tace ${tace_ref}m³ em ${dataT}. Média ${media}
+CANCELAMENTO DE DÉBITO DEVIDO ENGANO DE LEITURA TACE.
+Fatura(s) emitida(s) entre ${dataInicial} e ${dataFinal}, que resultará em ${envolviFaturas} contas refaturadas.`;   
+    } else if(refaCod === 'cod25' || refaCod === 'cod27'|| refaCod === 'cod29' || refaCod === 'cod31'){
+        let codNome = "";
+        if(refaCod === 'cod25') codNome = "CÓDIGO 25 - CADASTRO DE ECONOMIA";
+        if(refaCod === 'cod27') codNome = "CÓDIGO 27 - TARIFA DE DISPONIBILIDADE";
+        if(refaCod === 'cod29') codNome = "CÓDIGO 29 - HIDRÔMETRO INVERTIDO/TROCADO E NÃO LANÇADO";
+        if(refaCod === 'cod31') codNome = "CÓDIGO 31 - CADASTRO DE BENEFÍCIO TARIFÁRIO";
+
+        textoFinal = `${codNome}
+${genero} ${nome} - ${contato}: ${telefone}
+ALTERAÇÃO CADASTRAL
+Laudo de vistoria OS: ${os_laudo}
+Nº de fatura(s) envolvidas: ${envolviFaturas}`;
+    } else if(refaCod === 'media'){
+        textoFinal = `Nome do cliente: ${nome}
+Melhor contato ${contato} ${telefone}
+Leitura do cliente ${leitura_ref}m³ Em ${dataC}. Projeção ${proje_ref}
+Média ${media}. FATURAMENTO POR MÉDIA
+Nº de faturas envolvidas: ${envolviFaturas}
+Emitida(s) entre ${dataInicial} e ${dataFinal}.`
+    }
 }
 
 const copiaNota = document.getElementById('notaPronta');
@@ -285,6 +328,8 @@ const aviso = document.getElementById('aviso');
 const formulario = document.getElementById('formulario');
 const blocoAlegaRevi = document.getElementById('al_revi');
 const blocoAlegaExame = document.getElementById('al_exame');
+const refaturamento = document.getElementById('refatu');
+const Revi_Ex = document.getElementById('Revi_Ex');
 
 selector.addEventListener('change', function(){
     if(selector.value === 'Revi'){
@@ -303,9 +348,18 @@ selector.addEventListener('change', function(){
 selector.addEventListener('change', function(){
     if(selector.value === 'Revi'){
         formulario.classList.remove('escondido');
+        Revi_Ex.classList.remove('escondido');
+        refaturamento.classList.add('escondido');
         aviso.classList.add('escondido');
-    }else{
+    }else if(selector.value === 'Exame'){
         formulario.classList.remove('escondido');
+        Revi_Ex.classList.remove('escondido');
+        refaturamento.classList.add('escondido');
+        aviso.classList.add('escondido');
+    }else if(selector.value === 'Refa'){
+        formulario.classList.remove('escondido');
+        Revi_Ex.classList.add('escondido');
+        refaturamento.classList.remove('escondido');
         aviso.classList.add('escondido');
     }
 });
@@ -349,5 +403,21 @@ preAlegaE.addEventListener('change', function(){
         alegaQue.value = `EXAME PREDIAL VIRTUAL. CLIENTE INFORMA IMPOSSIBILIDADE DE UTILIZAÇÃO DO CANAL DIGITAL. JUSTIFICATIVA APRESENTADA: [DESCREVER JUSTIFICATIVA DE EXCEÇÃO].`;
     } else if(preAlegaE.value === 'hd'){
         alegaQue.value = `Cliente diz que seu hidrômetro está com problema, [está passando somente ar por ele / está medindo totalmente errado / está girando sem parar], deseja que um técnico vá em sua residência verificar isso.`;
+    }
+});
+
+const refaCod = document.getElementById('cod');
+const laudo = document.getElementById('osLaudo');
+const intervalo = document.getElementById('intervalo');
+
+refaCod.addEventListener('change', function(){
+    const valorCod = refaCod.value;
+
+    if(valorCod === 'cod25' || valorCod === 'cod27' || valorCod === 'cod29' || valorCod === 'cod31'){
+        laudo.classList.remove('escondido');
+        intervalo.classList.add('escondido');
+    } else if(valorCod === 'cod21' || valorCod === 'cod23' || valorCod === 'media'){
+        laudo.classList.add('escondido');
+        intervalo.classList.remove('escondido');
     }
 });

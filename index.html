@@ -21,6 +21,7 @@
                 <option value="" disabled selected>Selecione...</option>
                 <option value="Revi">Revisão</option>
                 <option value="Exame">Exame/Aferição</option>
+                <option value="Refa">Refaturamento</option>
             </select>
             <small class="erro">Selecione um.</small>
         </a>👈
@@ -33,10 +34,16 @@
                 <button type="button" id="burgui_fecha" class="fecha_burgui">&times;</button>
             </div>
             <ul class="menu_burgui">
-                <li><a href="https://almawavesabesp.beedoo.io/wiki/558653/revisao---alta-de-consumo-sem-causa-aparente" target="_blank">Revisão Sem Causa</a></li>
+                <h4>REVISÂO</h4>
+                <li><a href="https://almawavesabesp.beedoo.io/wiki/558653/revisao-alta-de-consumo-sem-causa-aparente?termo=Revisão&origem=busca_geral" target="_blank">Revisão Sem Causa</a></li>
+                <h4>VISTORIAS</h4>
                 <li><a href="https://almawavesabesp.beedoo.io/wiki/519476/vistoria-exame-predial?termo=exame&origem=busca_geral" target="_blank">Exame Predial</a></li>
                 <li><a href="https://almawavesabesp.beedoo.io/wiki/560395/exame-predial-virtual-video-atendimento?termo=exame&origem=busca_geral" target="_blank">Exame Predial Virtual</a></li>
-                <li><a href="https://almawavesabesp.beedoo.io/wiki/511390/afericao-de-hidrometro" target="_blank">Aferição de hidrômetro</a></li>
+                <li><a href="https://almawavesabesp.beedoo.io/wiki/511390/afericao-de-hidrometro?termo=Afer&origem=busca_geral" target="_blank">Aferição de hidrômetro</a></li>
+                <h4>REFATURAMENTO</h4>
+                <li><a href="https://almawavesabesp.beedoo.io/wiki/558941/motivos-de-refaturamento?termo=motivos&origem=busca_geral" target="_blank">Motivos de refaturamento</a></li>
+                <li><a href="https://almawavesabesp.beedoo.io/wiki/558932/refaturamento-faturamento-por-media?termo=Média&origem=busca_geral" target="_blank">Faturamento por média</a></li>
+                <li><a href="https://almawavesabesp.beedoo.io/wiki/558938/refaturamento-cancelamento-de-debitos-por-engano-de-leitura?termo=cance&origem=busca_geral" target="_blank">Cancelamento de débito</a></li>
             </ul>
         </div>
     </nav>
@@ -54,16 +61,7 @@
 <!--Revisão-->
     <form class="escondido" id="formulario">
 
-        <div class="campo">
-            <label for="RoC">Residência ou Comercial?</label>
-            <select id="RoC" name="RoC" required>
-                <option value="" disabled selected>Selecione...</option>
-                <option value="Resi">Residência</option>
-                <option value="Comer">Comercio</option>
-            </select>
-            <small class="erro">Selecione um.</small>
-        </div>
-
+        <section class="BASE">
 
         <div class="campo">
             <label for="contato">Qual o melhor contato?</label>
@@ -94,6 +92,33 @@
         <small class="erro">Informe ao menos 3 caracteres.</small></p>
         </div>
 
+        </section>
+
+        <section class="Revi_Ex escondido" id="Revi_Ex">
+
+        <div class="campo">
+            <label for="RoC">Residência ou Comercial?</label>
+            <select id="RoC" name="RoC" required>
+                <option value="" disabled selected>Selecione...</option>
+                <option value="Resi">Residência</option>
+                <option value="Comer">Comercio</option>
+            </select>
+            <small class="erro">Selecione um.</small>
+        </div>
+
+        <div class="campo">
+            <label for="leitura">Qual é a leitura? *</label>
+            <input type="number" id="leitura" name="leitura"
+            placeholder="0">
+        <small class="erro">Esta informação não pode estar zerada.</small>
+           <p><label for="data">Qual a data da leitura?</label>
+            <input type="date" id="data" name="data"></p>
+            <p><label for="proje">Qual é a projeção? *</label>
+            <input type="number" id="proje" name="proje"
+            placeholder="0">
+        <small class="erro">Esta informação não pode estar zerada.</small></p>
+        </div>
+
         <div class="campo">
             <div class="escondido" id="al_exame">
                 <label for="pre_alegaE">Mensagens prontas</label>
@@ -119,19 +144,6 @@
             <p><textarea id="alega" name="alega" rows="4" 
             placeholder="O cliente alega que fez as verificações..."></textarea>
             <small class="erro">Selecione um.</small></p>
-        </div>
-
-        <div class="campo">
-            <label for="leitura">Qual é a leitura? *</label>
-            <input type="number" id="leitura" name="leitura"
-            placeholder="0">
-        <small class="erro">Esta informação não pode estar zerada.</small>
-           <p><label for="data">Qual a data da leitura?</label>
-            <input type="date" id="data" name="data"></p>
-            <p><label for="proje">Qual é a projeção? *</label>
-            <input type="number" id="proje" name="proje"
-            placeholder="0">
-        <small class="erro">Esta informação não pode estar zerada.</small></p>
         </div>
 
         <div class="campo escondido" id="bloco_exame">
@@ -329,6 +341,74 @@
         <small class="erro">Informe a quantidade.</small></p>
         </div>
 
+        </section>
+
+        <section class="refatu escondido" id="refatu">
+            <div class="campo">
+            <label for="cod">Escolha um código: </label>
+            <select id="cod" name="cod" required>
+                <option value="" disabled selected>Selecione...</option>
+                <option value="cod21">Código 21 - Engano de Leitura (Leiturista)</option>
+                <option value="cod23">Código 23 - Engano de Leitura Inicial</option>
+                <option value="cod25">Código 25 - Cadastro de Economia</option>
+                <option value="cod27">Código 27 - Tarifa de Disponibilidade</option>
+                <option value="cod29">Código 29 - Hidrômetro Invertido/Trocado</option>
+                <option value="cod31">Código 31 - Cadastro de Benefício Tarifário</option>
+                <option value="media">Faturamento por Média</option>
+            </select>
+            <small class="erro">Selecione um.</small>
+        </div>
+
+        <div class="campo escondido" id="osLaudo">
+            <label for="os_laudo">Número de Laudo de Vistoria / OS: *</label>
+            <input type="text" id="os_laudo" name="os_laudo"
+            placeholder="2026/12345678"
+            required minlength="3" autocomplete="name">
+        <small class="erro">Informe ao menos 3 caracteres.</small>
+        </div>
+
+        <div class="campo escondido" id="intervalo">
+            <label for="leitura_ref">Qual é a leitura do cliente? *</label>
+            <input type="number" id="leitura_ref" name="leitura_ref"
+            placeholder="0">
+        <small class="erro">Esta informação não pode estar zerada.</small>
+           <p><label for="dataC">Data da leitura: </label>
+            <input type="date" id="dataC" name="dataC"></p>
+            <p><label for="proje_ref">Qual é a projeção? *</label>
+            <input type="number" id="proje_ref" name="proje_ref"
+            placeholder="0">
+        <small class="erro">Esta informação não pode estar zerada.</small></p>
+
+        <div class="campo">
+            <label for="tace_ref">Qual é a leitura do TACE? *</label>
+            <input type="number" id="tace_ref" name="tace_ref"
+            placeholder="0">
+        <small class="erro">Esta informação não pode estar zerada.</small>
+           <p><label for="dataT">Data da leitura:</label>
+            <input type="date" id="dataT" name="dataT"></p>
+            <p><label for="media">Qual é a média do cliente? *</label>
+            <input type="number" id="media" name="media"
+            placeholder="0">
+        <small class="erro">Esta informação não pode estar zerada.</small></p>
+        </div>
+
+        <div class="campo">
+            <label for="dataInicial">Data inicial: </label>
+            <input type="date" id="dataInicial" name="dataInicial">
+            <p><label for="dataFinal">Data final: </label>
+            <input type="date" id="dataFinal" name="dataFinal"></p>
+        </div>
+
+        </div>
+
+        <div class="campo">
+            <label for="faturas">Quantidade de faturas envolvidas: </label>
+            <input type="number" id="faturas" name="faturas"
+            placeholder="1">
+        </div>
+
+        </section>
+
         <section class="visualizer">
             <div class="campo">
                 <label for="notaPronta">Pré-vizualizção da nota gerada:</label>
@@ -340,7 +420,7 @@
             Acessa-lo garante que o cliente será bem atendido e você evita aquela NCG.</h3>
         </section>
 
-    </section>
+    </section> <!--Fim notas-->
 
     </form>
 
